@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import AlbumDetails from './AlbumDetails';
 
 class AlbumList extends Component {
@@ -8,7 +8,7 @@ class AlbumList extends Component {
   };
 
   componentWillMount() {
-    fetch('https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=jazz&api_key=b52d1dca839938408e89902843289ea8&format=json')
+    fetch('https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=rap&api_key=b52d1dca839938408e89902843289ea8&format=json')
      .then(response => response.json())
      .then((responseData) => {
        console.log('fetch data', responseData.albums.album);
@@ -29,9 +29,9 @@ class AlbumList extends Component {
 
   render() {
     return (
-      <View>
+      <ScrollView>
         {this.renderlist()}
-      </View>
+      </ScrollView>
     );
   }
 }
