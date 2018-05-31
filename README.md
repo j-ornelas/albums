@@ -1,8 +1,8 @@
-#To-Listen List
-##Info
+# To-Listen List
+## Info
 A React Native app that lets you see popular albums, then add them to your list.
 
-##Upcoming Features
+## Upcoming Features
 
 Review albums, add notes on ones you've listened to, see highest rated albums.
 
