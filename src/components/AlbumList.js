@@ -29,11 +29,12 @@ class AlbumList extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView >
         {this.renderlist()}
       </ScrollView>
     );
   }
 }
+
 
 export default AlbumList;
