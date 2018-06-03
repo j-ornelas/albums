@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
-import { Header } from './components/common';
+import { Header, Spinner } from './components/common';
 import LoginForm from './components/LoginForm.js';
 import AlbumList from './components/AlbumList.js';
 
 class App extends Component {
-  state = { loggedIn: false }
+  state = { loggedIn: null }
 
   componentWillMount() {
     firebase.initializeApp({
@@ -28,10 +28,17 @@ class App extends Component {
   }
 
   handleLogin() {
+    if (this.state.loggedIn === null){
+      return (
+        <View style={styles.spinnerStyle}>
+          <Spinner />
+        </View>
+      );
+    }
     if (!this.state.loggedIn) {
       return (
         <View style={styles.backgroundStyle}>
-          <Header headerText='Auth' />
+          <Header headerText='Login' />
           <LoginForm />
         </View>
       );
@@ -53,6 +60,12 @@ class App extends Component {
 const styles = {
   backgroundStyle: {
     backgroundColor: 'whitesmoke'
+  },
+  spinnerStyle: {
+    flex: 1,
+    backgroundColor: 'whitesmoke',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };
 
