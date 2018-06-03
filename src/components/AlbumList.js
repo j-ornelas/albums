@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import AlbumDetails from './AlbumDetails';
+import { Button } from './common'
+import firebase from 'firebase';
 
 class AlbumList extends Component {
   state = {
@@ -30,6 +32,10 @@ class AlbumList extends Component {
   render() {
     return (
       <ScrollView >
+      {//TODO: find a better place for this button. make a
+      // hamburger on the header.
+      }
+      <Button onPress={() => firebase.auth().signOut()}>Sign Out</Button>
         {this.renderlist()}
       </ScrollView>
     );
